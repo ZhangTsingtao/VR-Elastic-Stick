@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 910804783}
-  fruits: {fileID: 0}
+  fruits: {fileID: 796930734}
 --- !u!114 &217704675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,7 +520,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &217704677
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -698,6 +698,64 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233962217}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &264810454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 264810455}
+  - component: {fileID: 264810457}
+  - component: {fileID: 264810456}
+  m_Layer: 0
+  m_Name: Sphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &264810455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264810454}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.192, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 910804784}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &264810456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264810454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6229a26c1a4be444188601f6578d6c61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &264810457
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264810454}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &305332949
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,7 +904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 910804783}
-  fruits: {fileID: 0}
+  fruits: {fileID: 796930734}
 --- !u!114 &313889331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -982,7 +1040,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &313889333
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1096,7 +1154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 910804783}
-  fruits: {fileID: 0}
+  fruits: {fileID: 796930734}
 --- !u!114 &360446491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1232,7 +1290,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &360446493
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1674,7 +1732,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413266060}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.687, y: 2.394, z: 4.37}
+  m_LocalPosition: {x: 1.687, y: 2.644, z: 4.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1819,7 +1877,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449010861}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.68700004, y: 2.394, z: 4.37}
+  m_LocalPosition: {x: 0.68700004, y: 2.644, z: 4.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1955,7 +2013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 910804783}
-  fruits: {fileID: 0}
+  fruits: {fileID: 796930734}
 --- !u!114 &471210262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2091,7 +2149,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &471210264
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3677,7 +3735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 910804783}
-  fruits: {fileID: 0}
+  fruits: {fileID: 796930734}
 --- !u!114 &736221513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3813,7 +3871,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &736221515
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4231,7 +4289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 910804783}
-  fruits: {fileID: 0}
+  fruits: {fileID: 796930734}
 --- !u!114 &842563062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4367,7 +4425,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &842563064
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4789,18 +4847,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2124705421725058983, guid: 7dc2629a3f68a05419c3066422db6c4f, type: 3}
---- !u!114 &910804788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910804783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6229a26c1a4be444188601f6578d6c61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &942067275
 GameObject:
   m_ObjectHideFlags: 0
@@ -4934,7 +4980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 910804783}
-  fruits: {fileID: 0}
+  fruits: {fileID: 796930734}
 --- !u!114 &990453129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5070,7 +5116,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &990453131
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5374,7 +5420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 910804783}
-  fruits: {fileID: 0}
+  fruits: {fileID: 796930734}
 --- !u!114 &1180578759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5510,7 +5556,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1180578761
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5663,7 +5709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 910804783}
-  fruits: {fileID: 0}
+  fruits: {fileID: 796930734}
 --- !u!114 &1244608756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5799,7 +5845,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1244608758
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7291,7 +7337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 910804783}
-  fruits: {fileID: 0}
+  fruits: {fileID: 796930734}
 --- !u!114 &1574386386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7427,7 +7473,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1574386388
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7541,7 +7587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 910804783}
-  fruits: {fileID: 0}
+  fruits: {fileID: 796930734}
 --- !u!114 &1620006962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7677,7 +7723,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1620006964
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8314,7 +8360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 910804783}
-  fruits: {fileID: 0}
+  fruits: {fileID: 796930734}
 --- !u!114 &1742890535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8450,7 +8496,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1742890537
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8564,7 +8610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 910804783}
-  fruits: {fileID: 0}
+  fruits: {fileID: 796930734}
 --- !u!114 &1746708081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8700,7 +8746,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1746708083
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8912,7 +8958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 910804783}
-  fruits: {fileID: 0}
+  fruits: {fileID: 796930734}
 --- !u!114 &1756467562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9048,7 +9094,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1756467564
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9166,7 +9212,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7dc2629a3f68a05419c3066422db6c4f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7dc2629a3f68a05419c3066422db6c4f,
         type: 3}
@@ -9275,7 +9321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 910804783}
-  fruits: {fileID: 0}
+  fruits: {fileID: 796930734}
 --- !u!114 &1898277756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9411,7 +9457,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1898277758
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9944,7 +9990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 910804783}
-  fruits: {fileID: 0}
+  fruits: {fileID: 796930734}
 --- !u!114 &2019161053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10080,7 +10126,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &2019161055
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10254,6 +10300,7 @@ GameObject:
   - component: {fileID: 2074063020}
   - component: {fileID: 2074063019}
   - component: {fileID: 2074063023}
+  - component: {fileID: 2074063024}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -10436,6 +10483,18 @@ MonoBehaviour:
   m_Teleporting:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2074063024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074063018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13de907b8563a15499762340189399af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2088772743
 GameObject:
   m_ObjectHideFlags: 0
@@ -10698,7 +10757,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116266201}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.31299996, y: 2.394, z: 4.37}
+  m_LocalPosition: {x: -0.31299996, y: 2.644, z: 4.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
