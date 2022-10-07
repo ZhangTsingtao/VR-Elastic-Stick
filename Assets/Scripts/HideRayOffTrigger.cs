@@ -15,6 +15,5 @@ public class HideRayOffTrigger : MonoBehaviour
     {
         rightTeleportationRay.SetActive(rightTrigger.action.ReadValue<float>() > 0.1f);
         leftTeleportationRay.SetActive(leftTrigger.action.ReadValue<float>() > 0.1f);
-
     }
 }
