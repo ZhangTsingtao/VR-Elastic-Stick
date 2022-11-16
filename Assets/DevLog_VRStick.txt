@@ -1,0 +1,21 @@
+Oculus Desktop application - unexpected connections issues from China
+
+problem: 
+couldn't connet to login
+
+solution:
+如未在弹出的浏览器窗口中登陆脸书账号，请先登陆验证（推荐暂时将谷歌浏览器设为默认浏览器）
+已经在浏览器中验证脸书账号，在hosts中添加以下内容即可，此为Oculus特色Bug。。不止国内有这种情况1.打开 C:\Windows\System32\drivers\etc
+2.找到 hosts 这个文件，用记事本打开
+3.在该文件的末尾添加以下字符
+157.240.217.51 graph.oculus.com
+157.240.195.51 graph.oculus.com
+157.240.199.54 graph.oculus.com
+4 保存，保存时会让你选择路径，选择桌面
+5 将桌面保存的文件后缀 .txt 删掉，之后复制该文件，替换掉第 2 步打开的那个文件（C:\Windows\System32\drivers\etc 下的 host)
+
+WIN+R输入CMD打开命令提示符，运行命令ipconfig /flushdns刷新DNS解析缓存。
+
+
+
+
