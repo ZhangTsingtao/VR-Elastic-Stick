@@ -9,7 +9,7 @@ public class OnGroundOutBasket : MonoBehaviour
         if (collision.gameObject.CompareTag("Fruits"))
         {
             collision.transform.parent = gameObject.transform;
-            Debug.Log("!");
+            //Debug.Log("!");
         }
     }
 }

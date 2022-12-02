@@ -26,6 +26,9 @@ public class ActiveRigOnHit : MonoBehaviour
         {
             rb.isKinematic = false;
             grabable.enabled = true;
+
+            Magnet.activeFruits.Add(gameObject);
+            
         }
     }
 
@@ -38,6 +41,6 @@ public class ActiveRigOnHit : MonoBehaviour
     public void GetMeOut()
     {
         gameObject.transform.parent = fruits.transform;
-        Debug.Log("out the basket");
+        //Debug.Log("out the basket");
     }
 }
