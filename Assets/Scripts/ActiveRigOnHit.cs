@@ -10,7 +10,6 @@ public class ActiveRigOnHit : MonoBehaviour
     private XRGrabInteractable grabable;
 
     public GameObject basket;
-    public GameObject fruits;
 
     private void Start()
     {
@@ -40,7 +39,7 @@ public class ActiveRigOnHit : MonoBehaviour
 
     public void GetMeOut()
     {
-        gameObject.transform.parent = fruits.transform;
+        gameObject.transform.parent = GameObject.Find("Fruits").transform;
         //Debug.Log("out the basket");
     }
 }
