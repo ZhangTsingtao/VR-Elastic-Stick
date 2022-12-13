@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Bird : MonoBehaviour
@@ -84,8 +85,15 @@ public class Bird : MonoBehaviour
     {
         if (other.CompareTag("Fruits"))
         {
+            int index = SceneManager.allFruits.IndexOf(other.gameObject);
             SceneManager.allFruits.Remove(other.gameObject);
+
+            GameObject branch = SceneManager.allBranches.ElementAt(index);
+            SceneManager.allBranches.Remove(branch);
+
             Destroy(other.gameObject);
+            Destroy(branch);
+
             FindClosestFruit();
 
             hit = true;

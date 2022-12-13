@@ -6,6 +6,9 @@ using UnityEngine;
 public class SceneManager : MonoBehaviour
 {
     public static List<GameObject> allFruits = new List<GameObject>();
+    public static List<GameObject> allBirds = new List<GameObject>();
+    public static List<GameObject> allBranches = new List<GameObject>();
+
 
     [SerializeField] private int fruitCount = 100;
     public GameObject birdPref;
@@ -51,6 +54,7 @@ public class SceneManager : MonoBehaviour
         
         var birdInstance = Instantiate(birdPref, randomSpawnPos, Quaternion.identity);
         birdInstance.AddComponent<Bird>();
+        allBirds.Add(birdInstance);
 
     }
 }

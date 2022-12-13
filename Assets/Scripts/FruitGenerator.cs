@@ -62,10 +62,13 @@ public class FruitGenerator : MonoBehaviour
             branch.transform.localScale = 50 * branchScale;
             branch.transform.LookAt(fruit.transform);
 
+            SceneManager.allBranches.Add(branch);
+
             // Parent the fruit prefab and branch prefab to the tree trunk and add the "Fruits" tag
             fruit.transform.parent = transform;
             branch.transform.parent = transform;
             fruit.tag = "Fruits";
+            branch.tag = "Branches";
         }
     }
 }
