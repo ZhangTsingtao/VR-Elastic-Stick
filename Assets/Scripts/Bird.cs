@@ -73,7 +73,7 @@ public class Bird : MonoBehaviour
         }
         targetFruit = closestFruit;
 
-        if (SceneManager.allFruits.Count > 0)
+        if (targetFruit != null)
         {
             posGoal = targetFruit.transform.position;
             distanceModifier = (posGoal - posFormal).magnitude/birdSpeed;

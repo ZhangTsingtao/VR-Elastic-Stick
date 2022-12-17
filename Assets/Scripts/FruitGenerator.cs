@@ -68,6 +68,7 @@ public class FruitGenerator : MonoBehaviour
             fruit.transform.parent = transform;
             branch.transform.parent = transform;
             fruit.tag = "Fruits";
+            fruit.layer = LayerMask.NameToLayer("Fruits");
             branch.tag = "Branches";
         }
     }

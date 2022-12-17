@@ -9,30 +9,29 @@ public class SceneManager : MonoBehaviour
     public static List<GameObject> allBirds = new List<GameObject>();
     public static List<GameObject> allBranches = new List<GameObject>();
 
-
-    [SerializeField] private int fruitCount = 100;
     public GameObject birdPref;
-    public GameObject fruitPref;
-
+    
     private float timer = 0.0f;
     [SerializeField] private float spawnBirdPeriod = 1.0f;
 
+    public Vector3 birdSpawnPos = new Vector3(0f, 4f, 8f);
+    public Vector3 birdSpawnDensity = new Vector3(3f, 1f, 3f);
+
+    private float randomXmin;
+    private float randomYmin;
+    private float randomZmin;
+    private float randomXmax;
+    private float randomYmax;
+    private float randomZmax;
+
     private void Start()
     {
-        for (int i = 0; i < fruitCount; i++)
-        {
-            Vector3 randomSpawnPos = new Vector3(Random.Range(-2.0f, 3.0f), Random.Range(2.0f, 5.0f), Random.Range(-1.0f, 3.0f));
-            Quaternion randomSpawnRot = Quaternion.Euler(new Vector3(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f)));
-            var fruitInstance = Instantiate(fruitPref, randomSpawnPos, randomSpawnRot);
-            allFruits.Add(fruitInstance);
-        }
-
-        //foreach (GameObject go in GameObject.FindGameObjectsWithTag("Fruits"))
-        //{
-        //    allFruits.Add(go);
-        //}
-        Debug.Log(allFruits.Count);
-
+        randomXmin = birdSpawnPos.x - birdSpawnDensity.x;
+        randomXmax = birdSpawnPos.x + birdSpawnDensity.x;
+        randomYmin = birdSpawnPos.y - birdSpawnDensity.y;
+        randomYmax = birdSpawnPos.y + birdSpawnDensity.y;
+        randomZmin = birdSpawnPos.z - birdSpawnDensity.z;
+        randomZmax = birdSpawnPos.z + birdSpawnDensity.z;
     }
 
     private void Update()
@@ -49,8 +48,9 @@ public class SceneManager : MonoBehaviour
 
     private void RandomSpawn()
     {
+        
 
-        Vector3 randomSpawnPos = new Vector3(Random.Range(-15, 16), Random.Range(2, 6), Random.Range(3, 16));
+        Vector3 randomSpawnPos = new Vector3(Random.Range(randomXmin, randomXmax), Random.Range(randomYmin, randomYmax), Random.Range(randomZmin, randomZmax));
         
         var birdInstance = Instantiate(birdPref, randomSpawnPos, Quaternion.identity);
         birdInstance.AddComponent<Bird>();
