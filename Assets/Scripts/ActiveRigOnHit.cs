@@ -12,6 +12,8 @@ public class ActiveRigOnHit : MonoBehaviour
     public GameObject basket;
     public GameObject relatedBranch;
 
+    [SerializeField] private bool oncePlayed = false;
+
     private void Start()
     {
         grabable = GetComponent<XRGrabInteractable>();
@@ -28,7 +30,15 @@ public class ActiveRigOnHit : MonoBehaviour
             grabable.enabled = true;
 
             Magnet.activeFruits.Add(gameObject);
-            
+            PlayEffects();
+        }
+    }
+    public void PlayEffects()
+    {
+        if (!oncePlayed)
+        {
+            transform.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+            oncePlayed = true;
         }
     }
 

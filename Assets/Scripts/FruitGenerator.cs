@@ -75,7 +75,7 @@ public class FruitGenerator : MonoBehaviour
 
         SceneManager.allFruits.Add(fruit);
 
-        Vector3 fruitScale = new Vector3(Random.Range(0.16f, 0.24f), Random.Range(0.16f, 0.24f), Random.Range(0.16f, 0.24f));
+        Vector3 fruitScale = new Vector3(Random.Range(0.08f, 0.12f), Random.Range(0.08f, 0.12f), Random.Range(0.08f, 0.12f));
         // Parent the fruit prefab to the tree trunk
 
         fruit.transform.localScale = fruitScale;

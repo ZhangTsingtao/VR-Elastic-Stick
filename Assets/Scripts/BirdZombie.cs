@@ -6,9 +6,10 @@ public class BirdZombie : MonoBehaviour
 {
     [SerializeField] private GameObject targetBird;
     [SerializeField] private float birdSpeed = 1f;
+    private float deadTimeCountDown = 5f;
 
     private Vector3 dirFormal;
-    private Vector3 dirGoal;
+    
     private Vector3 posFormal;
 
     private float rotTime = 0.0f;
@@ -22,6 +23,7 @@ public class BirdZombie : MonoBehaviour
         FindClosestBird();
         birdAnimator = GetComponentInChildren<Animator>();
         deadParticle = GetComponentInChildren<ParticleSystem>();
+        StartCoroutine(DeadZombieCountDown());
     }
 
     void Update()
@@ -117,6 +119,11 @@ public class BirdZombie : MonoBehaviour
         {
             DeadBirdZombie();
         }
+    }
+    IEnumerator DeadZombieCountDown()
+    {
+        yield return new WaitForSeconds(deadTimeCountDown);
+        DeadBirdZombie();
     }
 
     private void DeadBirdZombie()

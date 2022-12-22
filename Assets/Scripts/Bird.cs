@@ -17,6 +17,7 @@ public class Bird : MonoBehaviour
     private Vector3 dirGoal;
 
     private bool hit = false;
+    private bool dead = false;
 
     [SerializeField] private Animator birdAnimator;
     [SerializeField] private ParticleSystem deadParticle;
@@ -33,21 +34,26 @@ public class Bird : MonoBehaviour
     void Update()
     {
         
-        if (!hit)
+        if (!hit && !dead)
         {
             if (targetFruit != null)
             {
-                //transform.position = Vector3.MoveTowards(transform.position, targetFruit.transform.position, birdSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, targetFruit.transform.position, birdSpeed * Time.deltaTime);
                 //transform.forward = targetFruit.transform.position - transform.position;
-                if (moveTimeCount < 1.0f)
-                {
-                    transform.position = Vector3.Lerp(posFormal, posGoal, Mathf.SmoothStep(0, 1, moveTimeCount));
-                    moveTimeCount += Time.deltaTime/distanceModifier;//define the move speed
-                }
+                //if (moveTimeCount < 1.0f)
+                //{
+                //    transform.position = Vector3.Lerp(posFormal, posGoal, Mathf.SmoothStep(0, 1, moveTimeCount));
+                //    moveTimeCount += Time.deltaTime/distanceModifier;//define the move speed
+                //}
+                
                 if (rotTimeCount < 1.0f)
                 {
                     transform.forward = Vector3.Lerp(dirFormal, dirGoal, rotTimeCount);
                     rotTimeCount += 2 * Time.deltaTime;//define the rotate speed
+                }
+                else
+                {
+                    transform.forward = targetFruit.transform.position - transform.position;
                 }
             }
             else
@@ -108,7 +114,8 @@ public class Bird : MonoBehaviour
             FindClosestFruit();
 
             hit = true;
-            StartCoroutine(HungryAgain());
+            if(!dead)
+                StartCoroutine(HungryAgain());
         }
     }
     IEnumerator HungryAgain()
@@ -129,6 +136,7 @@ public class Bird : MonoBehaviour
     public void DeadBird()
     {
         hit = true;
+        dead = true;
         gameObject.GetComponent<Rigidbody>().isKinematic = false;
         birdAnimator.SetBool("dead", true);
         deadParticle.Play();

@@ -14,7 +14,6 @@ public class GrabFruits : MonoBehaviour
     [SerializeField] private GameObject theFruit;
     [SerializeField] private GameObject theBranch;
 
-
     void Update()
     {
         grabValue = pinchAction.action.ReadValue<float>();
@@ -28,12 +27,12 @@ public class GrabFruits : MonoBehaviour
             {
                 theFruit = other.gameObject;
                 theBranch = theFruit.GetComponent<ActiveRigOnHit>().relatedBranch;
-                StartCoroutine(GrabAFruit(other.gameObject));
-                other.GetComponentInChildren<ParticleSystem>().Play();
+                StartCoroutine(GrabAFruit());
+
             }
         }
     }
-    IEnumerator GrabAFruit(GameObject fruit)
+    IEnumerator GrabAFruit()
     {
         yield return new WaitForSeconds(0.2f);
 
