@@ -14,7 +14,7 @@ public class GrabFruitAnimation : MonoBehaviour
     void Update()
     {
         grabValue = pinchAction.action.ReadValue<float>();
-        if (grabValue > 0.2f)
+        if (grabValue > 0.05f)
         {
             grabAnimator.SetTrigger("grab");
         }

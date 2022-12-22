@@ -10,6 +10,7 @@ public class ActiveRigOnHit : MonoBehaviour
     private XRGrabInteractable grabable;
 
     public GameObject basket;
+    public GameObject relatedBranch;
 
     private void Start()
     {

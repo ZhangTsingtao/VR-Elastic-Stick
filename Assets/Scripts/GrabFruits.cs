@@ -11,7 +11,9 @@ public class GrabFruits : MonoBehaviour
 
     private float grabValue;
 
-    private GameObject theFruit;
+    [SerializeField] private GameObject theFruit;
+    [SerializeField] private GameObject theBranch;
+
 
     void Update()
     {
@@ -25,21 +27,19 @@ public class GrabFruits : MonoBehaviour
             if(grabValue > 0.2f)
             {
                 theFruit = other.gameObject;
-                StartCoroutine(GrabAFruit());                
+                theBranch = theFruit.GetComponent<ActiveRigOnHit>().relatedBranch;
+                StartCoroutine(GrabAFruit(other.gameObject));
+                other.GetComponentInChildren<ParticleSystem>().Play();
             }
         }
     }
-    IEnumerator GrabAFruit()
+    IEnumerator GrabAFruit(GameObject fruit)
     {
         yield return new WaitForSeconds(0.2f);
 
-        int index = SceneManager.allFruits.IndexOf(theFruit);
         SceneManager.allFruits.Remove(theFruit);
-
-        GameObject branch = SceneManager.allBranches.ElementAt(index);
-        SceneManager.allBranches.Remove(branch);
-
         Destroy(theFruit);
-        Destroy(branch);
+        Destroy(theBranch);
+
     }
 }

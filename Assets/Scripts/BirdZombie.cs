@@ -13,11 +13,15 @@ public class BirdZombie : MonoBehaviour
 
     private float rotTime = 0.0f;
 
-
     private bool hit = false;
+
+    [SerializeField] private Animator birdAnimator;
+    [SerializeField] private ParticleSystem deadParticle;
     void Start()
     {
         FindClosestBird();
+        birdAnimator = GetComponentInChildren<Animator>();
+        deadParticle = GetComponentInChildren<ParticleSystem>();
     }
 
     void Update()
@@ -70,7 +74,7 @@ public class BirdZombie : MonoBehaviour
 
         GameObject closestBird = null;
         float distance = 1000f;
-        foreach (GameObject bird in SceneManager.allBirds)
+        foreach (GameObject bird in GameObject.FindGameObjectsWithTag("Birds"))   //SceneManager.allBirds
         {
             float curDistance = (bird.transform.position - transform.position).sqrMagnitude;
             if (curDistance < distance)
@@ -91,7 +95,10 @@ public class BirdZombie : MonoBehaviour
         if (other.CompareTag("Birds"))
         {
             SceneManager.allBirds.Remove(other.gameObject);
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
+            other.gameObject.tag = "Untagged";
+            Bird scriptB = other.gameObject.GetComponent<Bird>();
+            scriptB.DeadBird();
             FindClosestBird();
 
             hit = true;
@@ -108,15 +115,22 @@ public class BirdZombie : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Stick"))
         {
-            hit = true;
-            gameObject.GetComponent<Rigidbody>().isKinematic = false;
-
-            StartCoroutine(WaitTillIDie());
+            DeadBirdZombie();
         }
+    }
+
+    private void DeadBirdZombie()
+    {
+        hit = true;
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        birdAnimator.SetBool("dead", true);
+        deadParticle.Play();
+
+        StartCoroutine(WaitTillIDie());
     }
     IEnumerator WaitTillIDie()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         Destroy(gameObject);
     }
 }

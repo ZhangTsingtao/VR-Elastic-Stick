@@ -7,8 +7,6 @@ public class SceneManager : MonoBehaviour
 {
     public static List<GameObject> allFruits = new List<GameObject>();
     public static List<GameObject> allBirds = new List<GameObject>();
-    public static List<GameObject> allBranches = new List<GameObject>();
-
     public GameObject birdPref;
     
     private float timer = 0.0f;

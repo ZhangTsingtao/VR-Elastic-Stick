@@ -17,9 +17,17 @@ public class Bird : MonoBehaviour
     private Vector3 dirGoal;
 
     private bool hit = false;
+
+    [SerializeField] private Animator birdAnimator;
+    [SerializeField] private ParticleSystem deadParticle;
+
+
     void Start()
     {
         FindClosestFruit();
+        birdAnimator = GetComponentInChildren<Animator>();
+        deadParticle = GetComponentInChildren<ParticleSystem>();
+
     }
 
     void Update()
@@ -85,14 +93,17 @@ public class Bird : MonoBehaviour
     {
         if (other.CompareTag("Fruits"))
         {
-            int index = SceneManager.allFruits.IndexOf(other.gameObject);
             SceneManager.allFruits.Remove(other.gameObject);
 
-            GameObject branch = SceneManager.allBranches.ElementAt(index);
-            SceneManager.allBranches.Remove(branch);
+            GameObject branch = other.gameObject.GetComponent<ActiveRigOnHit>().relatedBranch;
 
             Destroy(other.gameObject);
             Destroy(branch);
+
+            if(other.gameObject.GetComponent<ToxicFruit>() != null)
+            {
+                other.gameObject.GetComponent<ToxicFruit>().BirdToZombie(gameObject);
+            }
 
             FindClosestFruit();
 
@@ -110,15 +121,23 @@ public class Bird : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Stick"))
         {
-            hit = true;
-            gameObject.GetComponent<Rigidbody>().isKinematic = false;
-
-            StartCoroutine(WaitTillIDie());
+            DeadBird();
         }
+    }
+
+
+    public void DeadBird()
+    {
+        hit = true;
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        birdAnimator.SetBool("dead", true);
+        deadParticle.Play();
+
+        StartCoroutine(WaitTillIDie());
     }
     IEnumerator WaitTillIDie()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(10);
         Destroy(gameObject);
     }
 }

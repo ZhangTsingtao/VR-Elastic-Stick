@@ -8,6 +8,7 @@ TagManager:
   - Fruits
   - Birds
   - Branches
+  - BirdZombies
   layers:
   - Default
   - TransparentFX
