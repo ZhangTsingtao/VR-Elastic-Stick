@@ -12,7 +12,7 @@ public class ActiveRigOnHit : MonoBehaviour
     public GameObject basket;
     public GameObject relatedBranch;
 
-    [SerializeField] private bool oncePlayed = false;
+    public bool oncePlayed = false;
 
     private void Start()
     {
@@ -30,16 +30,18 @@ public class ActiveRigOnHit : MonoBehaviour
             grabable.enabled = true;
 
             Magnet.activeFruits.Add(gameObject);
-            PlayEffects();
+           
+            if (!oncePlayed)
+            {
+                PlayEffects();
+                oncePlayed = true;
+            }
+            
         }
     }
     public void PlayEffects()
     {
-        if (!oncePlayed)
-        {
-            transform.gameObject.GetComponentInChildren<ParticleSystem>().Play();
-            oncePlayed = true;
-        }
+        transform.gameObject.GetComponentInChildren<ParticleSystem>().Play();
     }
 
     public void PutMeIn()

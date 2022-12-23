@@ -8,34 +8,66 @@ using UnityEngine.InputSystem;
 public class SuckFruits : MonoBehaviour
 {
     public InputActionProperty pinchAction;
+    private float suckValue;
 
-    private float grabValue;
-
+    public float speed = 5f;
+    public float destroyDistance = 0.1f;
+    
+    public GameObject vacuumeCenter;
+    
+    public ParticleSystem vacuumDust;
+    public ParticleSystem gotFruitPar;
     [SerializeField] private GameObject theFruit;
     [SerializeField] private GameObject theBranch;
-
     void Update()
     {
-        grabValue = pinchAction.action.ReadValue<float>();
+        suckValue = pinchAction.action.ReadValue<float>();
+
+        vacuumDust.emissionRate = suckValue * 15f;
+        
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Fruits"))
         {
-            if(grabValue > 0.2f)
+            if(suckValue > 0.2f)
             {
                 theFruit = other.gameObject;
                 theBranch = theFruit.GetComponent<ActiveRigOnHit>().relatedBranch;
-                StartCoroutine(GrabAFruit());
 
+
+                Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+                if(other.GetComponent<ActiveRigOnHit>().oncePlayed)
+                {
+                    rb.isKinematic = true;
+                    other.gameObject.transform.position = Vector3.MoveTowards(other.gameObject.transform.position, vacuumeCenter.transform.position, suckValue * speed * Time.deltaTime);
+                    gotFruitPar.Play();
+
+                    float distance = Vector3.Distance(vacuumeCenter.transform.position, other.transform.position);
+                    Debug.Log(distance);
+                    if(distance < destroyDistance)
+                    {
+                        GrabAFruit();
+                    }
+                }
             }
         }
     }
-    IEnumerator GrabAFruit()
+    private void OnTriggerExit(Collider other)
     {
-        yield return new WaitForSeconds(0.2f);
-
+        if (other.gameObject.CompareTag("Fruits"))
+        {
+            if (other.GetComponent<ActiveRigOnHit>().oncePlayed)
+            {
+                Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+                rb.isKinematic = false;
+                //Debug.Log("Now it's set to none Kinematic");
+            }
+        }
+    }
+    public void GrabAFruit()
+    {
         SceneManager.allFruits.Remove(theFruit);
         Destroy(theFruit);
         Destroy(theBranch);

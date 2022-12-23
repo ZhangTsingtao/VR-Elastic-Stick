@@ -17,5 +17,9 @@ solution:
 WIN+R输入CMD打开命令提示符，运行命令ipconfig /flushdns刷新DNS解析缓存。
 
 
+Optimization:
+Vacuum: Fruit moce speed change with input's value
+
+
 
 
