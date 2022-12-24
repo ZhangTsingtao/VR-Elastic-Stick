@@ -8427,7 +8427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   birdPref: {fileID: 5095677986864877907, guid: eff185f94272b70469f5949511577508,
     type: 3}
-  spawnBirdPeriod: 1
+  spawnBirdPeriod: 2
   birdSpawnPos: {x: 0, y: 4, z: 15}
   birdSpawnDensity: {x: 3, y: 1, z: 8}
 --- !u!4 &978949755

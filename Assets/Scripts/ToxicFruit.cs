@@ -17,7 +17,7 @@ public class ToxicFruit : MonoBehaviour
     {
         if (bird.CompareTag("Birds"))
         {
-            Debug.Log("I'm Toxic!!!!");
+            //Debug.Log("I'm Toxic!!!!");
 
             emptyParticleObject.transform.SetParent(null);
             emptyParticleObject.GetComponent<ParticleSystem>().Play();
@@ -26,6 +26,8 @@ public class ToxicFruit : MonoBehaviour
             Destroy(bird);
             GameObject zombie = Instantiate(birdZombie, transform.position, transform.rotation);
             zombie.tag = "BirdZombies";
+            zombie.layer = LayerMask.NameToLayer("Birds");
+
         }
     }
     IEnumerator DestroyParticle()

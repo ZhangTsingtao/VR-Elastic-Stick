@@ -45,7 +45,7 @@ public class SuckFruits : MonoBehaviour
                     gotFruitPar.Play();
 
                     float distance = Vector3.Distance(vacuumeCenter.transform.position, other.transform.position);
-                    Debug.Log(distance);
+                    //Debug.Log(distance);
                     if(distance < destroyDistance)
                     {
                         GrabAFruit();

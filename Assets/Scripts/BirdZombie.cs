@@ -6,7 +6,7 @@ public class BirdZombie : MonoBehaviour
 {
     [SerializeField] private GameObject targetBird;
     [SerializeField] private float birdSpeed = 1f;
-    private float deadTimeCountDown = 5f;
+    private float deadTimeCountDown = 15f;
 
     private Vector3 dirFormal;
     
@@ -79,7 +79,7 @@ public class BirdZombie : MonoBehaviour
         foreach (GameObject bird in GameObject.FindGameObjectsWithTag("Birds"))   //SceneManager.allBirds
         {
             float curDistance = (bird.transform.position - transform.position).sqrMagnitude;
-            if (curDistance < distance)
+            if (curDistance < distance && !bird.GetComponent<Bird>().dead)
             {
                 closestBird = bird;
                 distance = curDistance;

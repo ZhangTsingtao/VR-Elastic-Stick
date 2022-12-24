@@ -10,7 +10,7 @@ public class SceneManager : MonoBehaviour
     public GameObject birdPref;
     
     private float timer = 0.0f;
-    [SerializeField] private float spawnBirdPeriod = 1.0f;
+    public float spawnBirdPeriod = 1.0f;
 
     public Vector3 birdSpawnPos = new Vector3(0f, 4f, 8f);
     public Vector3 birdSpawnDensity = new Vector3(3f, 1f, 3f);
@@ -52,6 +52,8 @@ public class SceneManager : MonoBehaviour
         
         var birdInstance = Instantiate(birdPref, randomSpawnPos, Quaternion.identity);
         birdInstance.AddComponent<Bird>();
+        birdInstance.layer = LayerMask.NameToLayer("Birds");
+
         allBirds.Add(birdInstance);
 
     }

@@ -17,7 +17,7 @@ public class Bird : MonoBehaviour
     private Vector3 dirGoal;
 
     private bool hit = false;
-    private bool dead = false;
+    public bool dead = false;
 
     [SerializeField] private Animator birdAnimator;
     [SerializeField] private ParticleSystem deadParticle;
