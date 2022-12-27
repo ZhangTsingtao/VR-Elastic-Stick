@@ -60,7 +60,7 @@ public class Bird : MonoBehaviour
             {
                 FindClosestFruit();
             }
-            if (SceneManager.allFruits.Count == 0)
+            if (BirdSpawner.allFruits.Count == 0)
             {
                 Debug.Log("No Fruit!!!!");
             }
@@ -76,7 +76,7 @@ public class Bird : MonoBehaviour
 
         GameObject closestFruit = null;
         float distance = 1000f;
-        foreach (GameObject fruit in SceneManager.allFruits)
+        foreach (GameObject fruit in BirdSpawner.allFruits)
         {
             float curDistance = (fruit.transform.position - transform.position).sqrMagnitude;
             if (curDistance < distance)
@@ -99,7 +99,7 @@ public class Bird : MonoBehaviour
     {
         if (other.CompareTag("Fruits"))
         {
-            SceneManager.allFruits.Remove(other.gameObject);
+            BirdSpawner.allFruits.Remove(other.gameObject);
 
             GameObject branch = other.gameObject.GetComponent<ActiveRigOnHit>().relatedBranch;
 

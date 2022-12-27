@@ -61,7 +61,7 @@ public class BirdZombie : MonoBehaviour
             {
                 FindClosestBird();
             }
-            if (SceneManager.allFruits.Count == 0)
+            if (BirdSpawner.allFruits.Count == 0)
             {
                 Debug.Log("No Fruit!!!!");
             }
@@ -96,7 +96,7 @@ public class BirdZombie : MonoBehaviour
     {
         if (other.CompareTag("Birds"))
         {
-            SceneManager.allBirds.Remove(other.gameObject);
+            BirdSpawner.allBirds.Remove(other.gameObject);
             //Destroy(other.gameObject);
             other.gameObject.tag = "Untagged";
             Bird scriptB = other.gameObject.GetComponent<Bird>();

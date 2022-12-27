@@ -36,7 +36,7 @@ public class GrabFruits : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
 
-        SceneManager.allFruits.Remove(theFruit);
+        BirdSpawner.allFruits.Remove(theFruit);
         Destroy(theFruit);
         Destroy(theBranch);
 

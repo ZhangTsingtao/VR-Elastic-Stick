@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class SceneManager : MonoBehaviour
+public class BirdSpawner : MonoBehaviour
 {
     public static List<GameObject> allFruits = new List<GameObject>();
     public static List<GameObject> allBirds = new List<GameObject>();

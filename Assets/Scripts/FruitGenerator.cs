@@ -73,7 +73,7 @@ public class FruitGenerator : MonoBehaviour
             fruit = Instantiate(fruitToxic, offsetPosition, Quaternion.identity);
         }
 
-        SceneManager.allFruits.Add(fruit);
+        BirdSpawner.allFruits.Add(fruit);
 
         Vector3 fruitScale = new Vector3(Random.Range(0.08f, 0.12f), Random.Range(0.08f, 0.12f), Random.Range(0.08f, 0.12f));
         // Parent the fruit prefab to the tree trunk
@@ -105,7 +105,7 @@ public class FruitGenerator : MonoBehaviour
     {
         while(true)
         {
-            if(SceneManager.allFruits.Count < 20)
+            if(BirdSpawner.allFruits.Count < 20)
             {
                 SpawnAFruit();
             }

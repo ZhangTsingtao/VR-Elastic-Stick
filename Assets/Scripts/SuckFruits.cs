@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class SuckFruits : MonoBehaviour
 {
@@ -16,14 +18,36 @@ public class SuckFruits : MonoBehaviour
     public GameObject vacuumeCenter;
     
     public ParticleSystem vacuumDust;
+    public ParticleSystem circleLine;
     public ParticleSystem gotFruitPar;
+    public GameObject vacuumLine;
+
     [SerializeField] private GameObject theFruit;
     [SerializeField] private GameObject theBranch;
+
+    private bool isToxic;
+    public TMP_Text scoreText;
+    public int score = 0;
+    private void Start()
+    {
+        vacuumLine.SetActive(false);
+    }
     void Update()
     {
         suckValue = pinchAction.action.ReadValue<float>();
 
         vacuumDust.emissionRate = suckValue * 15f;
+
+        if(suckValue > 0.2f)
+        {
+            vacuumLine.SetActive(true);
+            circleLine.emissionRate = suckValue;
+        }
+        else
+        {
+            vacuumLine.SetActive(false);
+            circleLine.emissionRate = 0f;
+        }
         
     }
 
@@ -48,7 +72,7 @@ public class SuckFruits : MonoBehaviour
                     //Debug.Log(distance);
                     if(distance < destroyDistance)
                     {
-                        GrabAFruit();
+                        GrabAFruit(other.gameObject);
                     }
                 }
             }
@@ -66,11 +90,23 @@ public class SuckFruits : MonoBehaviour
             }
         }
     }
-    public void GrabAFruit()
+    public void GrabAFruit(GameObject other)
     {
-        SceneManager.allFruits.Remove(theFruit);
+        BirdSpawner.allFruits.Remove(theFruit);
         Destroy(theFruit);
         Destroy(theBranch);
+
+        isToxic = other.GetComponent<ToxicFruit>() != null;
+        if(isToxic)
+        {
+            score--;
+            scoreText.text = "Fruits: " + score.ToString();
+        }
+        else
+        {
+            score++;
+            scoreText.text = "Fruits: " + score.ToString();
+        }
 
     }
 }
