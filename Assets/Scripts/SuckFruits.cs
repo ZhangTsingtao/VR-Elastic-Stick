@@ -41,12 +41,18 @@ public class SuckFruits : MonoBehaviour
         if(suckValue > 0.2f)
         {
             vacuumLine.SetActive(true);
+
+            var emission = circleLine.emission;
+            emission.enabled = true;
             circleLine.emissionRate = suckValue;
+            
         }
         else
         {
             vacuumLine.SetActive(false);
-            circleLine.emissionRate = 0f;
+            var emission = circleLine.emission;
+            emission.enabled = false;
+            
         }
         
     }

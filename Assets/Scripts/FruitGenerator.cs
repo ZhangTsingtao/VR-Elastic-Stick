@@ -48,6 +48,7 @@ public class FruitGenerator : MonoBehaviour
 
             StartCoroutine(CheckFruitAmount());
         }
+        Debug.Log(BirdSpawner.allFruits.Count);
     }
     public void SpawnAFruit()
     {
