@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Bird : MonoBehaviour
 {
@@ -109,6 +110,11 @@ public class Bird : MonoBehaviour
             if(other.gameObject.GetComponent<ToxicFruit>() != null)
             {
                 other.gameObject.GetComponent<ToxicFruit>().BirdToZombie(gameObject);
+            }
+            else
+            {
+                GameObject gameObject = GameObject.Find("HandleVacuum");
+                gameObject.GetComponent<SuckFruits>().MinusScore();
             }
 
             FindClosestFruit();

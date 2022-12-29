@@ -105,14 +105,22 @@ public class SuckFruits : MonoBehaviour
         isToxic = other.GetComponent<ToxicFruit>() != null;
         if(isToxic)
         {
-            score--;
-            scoreText.text = "Fruits: " + score.ToString();
+            MinusScore();
         }
         else
         {
-            score++;
-            scoreText.text = "Fruits: " + score.ToString();
+            AddScore();
         }
 
+    }
+    public void AddScore()
+    {
+        score++;
+        scoreText.text = "Fruits: " + score.ToString();
+    }
+    public void MinusScore()
+    {
+        score--;
+        scoreText.text = "Fruits: " + score.ToString();
     }
 }
